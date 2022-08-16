@@ -4,7 +4,10 @@ from os import listdir
 import csv
 
 
+sum = 0
 path = 'files'
+greatest_values = []
+
 # Gets all files and directories from a diretory and writes all file-entries in array
 onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
 
@@ -29,4 +32,10 @@ for file in onlyfiles:
                     greatest_value = value
 
     # Print filename + greatest value
+    greatest_values.append(greatest_value)
     print(file + ': ' + str(greatest_value))
+
+for value in greatest_values:
+    sum += value
+schnitt = sum / len(greatest_values)
+print('Schnitt: ' + str(schnitt))
